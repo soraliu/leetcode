@@ -75,7 +75,7 @@ var isValid = function(s) {
     if (!mapping[s[i]]) {
       stack.push(s[i])
     } else if (stack.pop() !== mapping[s[i]]) {
-      return false;
+      return false
     }
   }
 
