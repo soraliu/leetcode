@@ -42,6 +42,6 @@
 var isPowerOfTwo = function(n) {
   if (n <= 0) return false
 
-  return ! (n.toString(2) & (n - 1).toString(2))
+  return !!(+ n.toString(2).slice(1)
 };
 // @lc code=end
