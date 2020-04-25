@@ -40,6 +40,8 @@
  * @return {boolean}
  */
 var isPowerOfTwo = function(n) {
+  if (n <= 0) return false
+
   return ! (n.toString(2) & (n - 1).toString(2))
 };
 // @lc code=end
