@@ -48,7 +48,7 @@
 var binaryTreePaths = function(root) {
   if (!root) return []
 
-  if (!root.left && !root.right) return [root.val]
+  if (!root.left && !root.right) return [`${root.val}`]
 
   let result = binaryTreePaths(root.left).concat(binaryTreePaths(root.right)).map(path => `${root.val}->${path}`)
 
