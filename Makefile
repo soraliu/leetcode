@@ -1,21 +1,29 @@
 submit:
-	file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om) && \
 	result=$$(leetcode submit $${file}) && echo "$$result" && \
 	msg=`echo "feat(algorithm): leetcode submit $${file}\n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
 
 list:
-	leetcode list -t google -q Le
+	@leetcode list -t google -q Le
 
 do:
-	leetcode show -x -l javascript -o google $(id) -ge
+	@company=google && \
+	tags=$$(leetcode show -x -l javascript -o $${company} $(id) -g | rg -e 'Tags:' | xargs -n1 echo | sort | rg -v : | tr '\n' '.') && \
+	file=$$(git ls-files -om) && \
+	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*/\d+\.[a-z-]+\.)(\d+\.)?js' -r "\$${pre}$${tags}js") && \
+	mv $$file $$file_with_tags && vim $$file_with_tags
 
 run:
-	file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om) && \
 	leetcode run $$file
 
 local:
-	file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om) && \
 	node $$file
 
 solution:
-	leetcode show -x -l javascript -o google $(id) --solution
+	@leetcode show -x -l javascript -o google $(id) --solution
+
+tag_list:
+	@tags_all=$$(rg --files -g '*.js' | rg -e '/\d+\.[a-z-]+\.(?P<tag>.*?)(\.\d+)?\.js' -or '$$tag' | tr '.' '\n' | sort) && \
+	echo "$$tags_all" | uniq | xargs -n 1 -I tag bash -c "echo tag \$$(echo '$$tags_all' | grep tag | wc -l)" | column -t -c ' ' | sort -nrk 2
