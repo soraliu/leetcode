@@ -6,7 +6,7 @@ list:
 	leetcode list -t google -q Le
 
 do:
-	leetcode show -x -l javascript -o google -ge $(id)
+	leetcode show -x -l javascript -o google $(id) -ge
 
 solution:
-	leetcode show -x -l javascript -o google --solution $(id)
+	leetcode show -x -l javascript -o google $(id) --solution
