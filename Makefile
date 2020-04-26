@@ -13,5 +13,9 @@ run:
 	file=$$(git ls-files -om) && \
 	leetcode run $$file
 
+local:
+	file=$$(git ls-files -om) && \
+	node $$file
+
 solution:
 	leetcode show -x -l javascript -o google $(id) --solution
