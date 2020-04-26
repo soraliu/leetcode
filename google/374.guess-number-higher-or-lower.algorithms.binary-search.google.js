@@ -45,12 +45,20 @@
  * @return {number}
  */
 var guessNumber = function(n) {
-  pick = Math.ceil(n / 2)
+  let left = 1
+  let right = n
 
-  let judge = guess(pick)
-  while (judge !== 0) {
-    pick = judge < 0 ? Math.ceil(pick / 2) : Math.ceil((pick + n) / 2)
+  while (true) {
+    pick = Math.floor((left + right ) / 2)
     judge = guess(pick)
+
+    if (judge < 0) {
+      right = pick
+    } else if (judge > 0) {
+      left = pick
+    } else {
+      break
+    }
   }
 
   return pick
