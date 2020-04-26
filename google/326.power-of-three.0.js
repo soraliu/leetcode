@@ -49,6 +49,6 @@
 var isPowerOfThree = function(n) {
   if (n < 1) return false
 
-  return !(+n.toString(3).slice(1))
+  return +n.toString(3)[0] === 1 && !(+n.toString(3).slice(1))
 };
 // @lc code=end
