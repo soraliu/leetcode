@@ -1,5 +1,5 @@
 submit:
-	file=$$(git ls-files -o) && \
+	file=$$(git ls-files -om) && \
 	result=$$(leetcode submit $${file}) && echo "$$result" && \
 	msg=`echo "feat(algorithm): leetcode submit $${file}\n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
 
@@ -10,7 +10,7 @@ do:
 	leetcode show -x -l javascript -o google $(id) -ge
 
 run:
-	file=$$(git ls-files -o) && \
+	file=$$(git ls-files -om) && \
 	leetcode run $$file
 
 solution:
