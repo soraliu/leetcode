@@ -49,7 +49,7 @@ var guessNumber = function(n) {
   let right = n
 
   while (true) {
-    pick = Math.floor((left + right ) / 2)
+    pick = (Math.random() * 10 * right) % (right - left + 1) + left
     judge = guess(pick)
 
     if (judge < 0) {
