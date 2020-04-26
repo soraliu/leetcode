@@ -45,11 +45,11 @@
  * @return {number}
  */
 var guessNumber = function(n) {
-  pick = Math.floor(n / 2)
+  pick = Math.ceil(n / 2)
 
   let judge = guess(pick)
   while (judge !== 0) {
-    pick = judge < 0 ? Math.floor(pick / 2) : Math.floor((pick + n) / 2)
+    pick = judge < 0 ? Math.ceil(pick / 2) : Math.ceil((pick + n) / 2)
     judge = guess(pick)
   }
 
