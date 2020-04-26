@@ -49,6 +49,8 @@
 var isPowerOfThree = function(n) {
   if (n < 1) return false
 
-  return +n.toString(3)[0] === 1 && !(+n.toString(3).slice(1))
+  let hexOfTree = n.toString(3)
+
+  return +hexOfTree[0] === 1 && !(+hexOfTree.slice(1))
 };
 // @lc code=end
