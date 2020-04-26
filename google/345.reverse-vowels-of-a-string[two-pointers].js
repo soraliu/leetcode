@@ -47,6 +47,11 @@ var reverseVowels = function(s) {
     'i': true,
     'o': true,
     'u': true,
+    'A': true,
+    'E': true,
+    'I': true,
+    'O': true,
+    'U': true,
   }
 
   let i = 0
