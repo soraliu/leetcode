@@ -48,20 +48,17 @@ var guessNumber = function(n) {
   let left = 1
   let right = n
 
-
-  while (true) {
-    pick = Math.round(Math.random() * (right - left)) + left
+  while (left <= right) {
+    pick = Math.floor((left + right) / 2)
     judge = guess(pick)
 
     if (judge < 0) {
-      right = pick
+      right = pick - 1
     } else if (judge > 0) {
-      left = pick
+      left = pick + 1
     } else {
-      break
+      return pick
     }
   }
-
-  return pick
 };
 // @lc code=end
