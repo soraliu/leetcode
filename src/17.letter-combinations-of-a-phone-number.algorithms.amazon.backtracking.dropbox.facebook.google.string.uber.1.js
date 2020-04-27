@@ -36,6 +36,8 @@
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
+  if (!digits) return []
+
   let result = []
 
   const mapping = {
