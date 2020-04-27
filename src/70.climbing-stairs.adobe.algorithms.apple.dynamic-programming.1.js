@@ -45,9 +45,14 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-  if (n === 1) return 1
-  if (n === 2) return 2
+  let cache = [0, 1, 2]
 
-  return climbStairs(n - 1) + climbStairs(n - 2)
+  if (n <= 2) return cache[n]
+
+  for (let i = 3; i <= n; i++) {
+    cache[i] = cache[i - 1] + cache[i - 2]
+  }
+
+  return cache[n]
 };
 // @lc code=end
