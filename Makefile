@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL:=/bin/bash
 
 submit:
 	@file=$$(git ls-files -om) && \
@@ -9,7 +9,7 @@ list:
 	@leetcode list -t google -q Le
 
 do:
-	company=src && \
+	@company=src && \
 	tags=$$(leetcode show -x -l javascript -o $${company} $(id) -g | rg -e 'Tags:' | xargs -n1 echo | sort | rg -v : | tr '\n' '.') && \
 	file=$$(git ls-files -om) && \
 	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*\d+\.[a-z-]+\.)js' -r "\$${pre}$${tags}")$$(rg --files $$company | grep $${file:0:-3} | wc -l).js && \
