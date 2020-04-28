@@ -53,7 +53,7 @@ var coinChange = function(coins, amount) {
       let curr = amount - coin
 
       if (curr >= 0) {
-        let num = coinChange(coins, curr)
+        let num = dp(coins, curr)
 
         if (num > -1) {
           min = Math.min(min, num)
