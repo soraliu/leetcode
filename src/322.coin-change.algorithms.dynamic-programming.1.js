@@ -42,26 +42,31 @@
  * @param {number} amount
  * @return {number}
  */
-var cache = {0: 0}
 var coinChange = function(coins, amount) {
-  if (cache[amount] !== undefined) return cache[amount]
+  let cache = {0: 0}
 
-  let min = Infinity
-  coins.forEach(coin => {
-    let curr = amount - coin
+  let dp = (coins, amount) => {
+    if (cache[amount] !== undefined) return cache[amount]
 
-    if (curr >= 0) {
-      let num = coinChange(coins, curr)
+    let min = Infinity
+    coins.forEach(coin => {
+      let curr = amount - coin
 
-      if (num > -1) {
-        min = Math.min(min, num)
+      if (curr >= 0) {
+        let num = coinChange(coins, curr)
+
+        if (num > -1) {
+          min = Math.min(min, num)
+        }
       }
-    }
-  })
+    })
 
-  const result = Number.isFinite(min) ? min + 1 : -1
-  cache[amount] = result
+    const result = Number.isFinite(min) ? min + 1 : -1
+    cache[amount] = result
 
-  return result
+    return result
+  }
+
+  return dp(coins, amount)
 };
 // @lc code=end
