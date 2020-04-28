@@ -42,8 +42,9 @@
  * @param {number} amount
  * @return {number}
  */
+var cache = {0: 0}
 var coinChange = function(coins, amount) {
-  if (amount === 0 ) return 0
+  if (cache[amount] !== undefined) return cache[amount]
 
   let min = Infinity
   coins.forEach(coin => {
@@ -58,6 +59,9 @@ var coinChange = function(coins, amount) {
     }
   })
 
-  return Number.isFinite(min) ? min + 1 : -1
+  const result = Number.isFinite(min) ? min + 1 : -1
+  cache[amount] = result
+
+  return result
 };
 // @lc code=end
