@@ -1,7 +1,7 @@
 SHELL:=/bin/bash
 
 submit:
-	file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om) && \
 	result=$$(leetcode submit $${file}) && echo "$$result" && \
 	msg=`echo -e "feat(algorithm): leetcode submit $$(echo $${file} | rg -e '[^/]+$$' -o) \n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
 
