@@ -49,8 +49,8 @@
  * @return {number}
  */
 var uniquePathsWithObstacles = function(obstacleGrid) {
-  let m = obstacleGrid.length
-  let n = obstacleGrid[0].length
+  let n = obstacleGrid.length
+  let m = obstacleGrid[0].length
 
   let dp = new Array()
   for (let i = 0, len = n; i < len; i++) {
