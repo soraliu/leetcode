@@ -32,6 +32,9 @@
  * @return {string[]}
  */
 var restoreIpAddresses = function(s) {
+  if (s.length < 4 || s.length > 12) return []
+
+
   let result = []
 
   let valid = ip => {
