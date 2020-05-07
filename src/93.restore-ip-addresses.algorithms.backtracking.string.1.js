@@ -36,7 +36,16 @@ var restoreIpAddresses = function(s) {
 
   let valid = ip => {
     let ranges = ip.split('.')
-    if (ranges.length === 4 && ranges.reduce((prev, next) => prev && (next !== '') && (0 <= +next && +next <= 255), true)) return true
+    if (ranges.length === 4 && ranges.reduce((prev, next) => {
+      if (
+        next === ''
+        || +next < 0
+        || +next > 255
+        || (next.length > 1 && next[0] === '0')
+      ) return false
+
+      return prev
+    }, true)) return true
 
     return false
   }
