@@ -47,4 +47,7 @@ time:
 		echo $$time > $(duration); \
 		echo "  duration: $$time"; \
 	}; \
-	format $$(bc <<< "$$(date +%s) - $$(cat $(start))")
+	format $$(bc <<< "$$(date +%s) - $$(cat $(start) 2>/dev/null || echo $$(date +%s))"); \
+
+clean:
+	rm -f $(start) $(duration)
