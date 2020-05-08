@@ -45,6 +45,6 @@ time:
 		((s=$$s%60)); \
 		time=$$(echo $$h:$$m:$$s); \
 		echo $$time > $(duration); \
-		echo $$time; \
+		echo "  duration: $$time"; \
 	}; \
 	format $$(bc <<< "$$(date +%s) - $$(cat $(start))")
