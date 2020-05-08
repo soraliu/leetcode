@@ -37,6 +37,11 @@ history:
 	@submits_all=$$(git log --format="%B" | rg -e "feat\(algorithm\): leetcode submit (.*)" -or '$$1') && \
 	echo "$$submits_all" | uniq | xargs -n 1 -I submit bash -c "echo submit \$$(echo '$$submits_all' | grep submit | wc -l)" | column -t -c ' ' | sort -nrk 2
 
+
+start:
+	@date +%s > $(start); \
+	echo $$(date +'%H:%M:%S') $$(cat $(start))
+
 time:
 	@format() { \
 		s=$$1; \
