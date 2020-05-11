@@ -1,6 +1,7 @@
 SHELL:=/bin/bash
 start=/var/tmp/leecode-last-start
 duration=/var/tmp/leecode-duration
+company=google
 
 submit: time
 	@file=$$(git ls-files -om) && \
@@ -8,7 +9,10 @@ submit: time
 	msg=`echo -e "feat(algorithm): leetcode submit $$(echo $${file} | rg -e '[^/]+$$' -o) \n\nduration: $$(cat $(duration))\n\n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
 
 list:
-	@leetcode list -t google -q Le
+	@leetcode list -t $(company) -q Le
+
+stat:
+	@leetcode stat -t $(company)
 
 do:
 	@date +%s > $(start)
