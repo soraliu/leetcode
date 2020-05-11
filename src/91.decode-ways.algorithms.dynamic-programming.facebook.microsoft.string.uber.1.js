@@ -54,7 +54,7 @@ var numDecodings = function(s) {
       continue
     }
 
-    if (s[i - 1] === '0') {
+    if (s[i - 1] === '0' || s[i - 1] > 2 || (s[i - 1] === '2' && s[i] > 6)) {
       dp[i] = dp[i - 1]
     } else {
       dp[i] = dp[i - 1] + (i > 1 ? dp[i - 2] : 1)
