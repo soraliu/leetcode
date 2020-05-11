@@ -42,7 +42,7 @@ var addStrings = function(num1, num2) {
 
   let flag = 0
   for (let i = 0, len = longerLength; i < len; i++) {
-    let sum = (i < shorterLength ? shorter[shorterLength - 1 - i] : 0) + longer[longerLength - 1 - i] + flag
+    let sum = +(i < shorterLength ? shorter[shorterLength - 1 - i] : 0) + +longer[longerLength - 1 - i] + flag
 
     result[i] = sum % 10
     flag = Math.floor(sum / 10)
