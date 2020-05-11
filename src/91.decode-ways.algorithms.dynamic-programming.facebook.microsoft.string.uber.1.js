@@ -50,6 +50,8 @@ var numDecodings = function(s) {
   let dp = [1]
   for (let i = 1, len = s.length; i < len; i++) {
     if (s[i] === '0') {
+      if (s[i - 1] === '0') return 0
+
       dp[i] = i > 1 ? dp[i - 2] : 1
       continue
     }
