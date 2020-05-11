@@ -45,7 +45,7 @@
  * @return {number}
  */
 var numDecodings = function(s) {
-  if (!s || (s.length === 1 && s[0] === 0)) return 0
+  if (!s || (s.length === 1 && s[0] === '0')) return 0
 
   let dp = [1]
   for (let i = 1, len = s.length; i < len; i++) {
