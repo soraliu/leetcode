@@ -14,19 +14,19 @@
  * Testcase Example:  '[[0,0,0],[0,1,0],[0,0,0]]'
  *
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
- * 
+ *
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
- * 
+ *
  * 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
- * 
- * 
- * 
+ *
+ *
+ *
  * 网格中的障碍物和空位置分别用 1 和 0 来表示。
- * 
- * 说明：m 和 n 的值均不超过 100。
- * 
- * 示例 1:
- * 
+ *
+ * 说明：m和 n 的值均不超过 100。
+ *
+ * 示例1:
+ *
  * 输入:
  * [
  * [0,0,0],
@@ -39,8 +39,8 @@
  * 从左上角到右下角一共有 2 条不同的路径：
  * 1. 向右 -> 向右 -> 向下 -> 向下
  * 2. 向下 -> 向下 -> 向右 -> 向右
- * 
- * 
+ *
+ *
  */
 
 // @lc code=start
@@ -48,11 +48,11 @@
  * @param {number[][]} obstacleGrid
  * @return {number}
  */
-var uniquePathsWithObstacles = function(obstacleGrid) {
-  let n = obstacleGrid.length
-  let m = obstacleGrid[0].length
+var uniquePathsWithObstacles = function (obstacleGrid) {
+  const n = obstacleGrid.length
+  const m = obstacleGrid[0].length
 
-  let dp = new Array()
+  const dp = []
   for (let i = 0, len = n; i < len; i++) {
     if (!dp[i]) dp[i] = new Array(m).fill(0)
     for (let j = 0, len = m; j < len; j++) {
@@ -71,5 +71,6 @@ var uniquePathsWithObstacles = function(obstacleGrid) {
     }
   }
   return dp[n - 1][m - 1]
-};
+}
 // @lc code=end
+export default uniquePathsWithObstacles

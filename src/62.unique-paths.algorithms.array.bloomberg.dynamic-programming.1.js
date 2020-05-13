@@ -14,19 +14,19 @@
  * Testcase Example:  '3\n2'
  *
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
- * 
+ *
  * 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
- * 
+ *
  * 问总共有多少条不同的路径？
- * 
- * 
- * 
+ *
+ *
+ *
  * 例如，上图是一个7 x 3 的网格。有多少可能的路径？
- * 
- * 
- * 
- * 示例 1:
- * 
+ *
+ *
+ *
+ * 示例1:
+ *
  * 输入: m = 3, n = 2
  * 输出: 3
  * 解释:
@@ -34,22 +34,22 @@
  * 1. 向右 -> 向右 -> 向下
  * 2. 向右 -> 向下 -> 向右
  * 3. 向下 -> 向右 -> 向右
- * 
- * 
- * 示例 2:
- * 
+ *
+ *
+ * 示例2:
+ *
  * 输入: m = 7, n = 3
  * 输出: 28
- * 
- * 
- * 
+ *
+ *
+ *
  * 提示：
- * 
- * 
+ *
+ *
  * 1 <= m, n <= 100
  * 题目数据保证答案小于等于 2 * 10 ^ 9
- * 
- * 
+ *
+ *
  */
 
 // @lc code=start
@@ -58,8 +58,8 @@
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function(m, n) {
-  let dp = new Array(n)
+var uniquePaths = function (m, n) {
+  const dp = new Array(n)
   for (let i = 0, len = n; i < len; i++) {
     if (!dp[i]) dp[i] = new Array(m).fill(0)
     for (let j = 0, len = m; j < len; j++) {
@@ -73,5 +73,6 @@ var uniquePaths = function(m, n) {
     }
   }
   return dp[n - 1][m - 1]
-};
+}
 // @lc code=end
+export default uniquePaths
