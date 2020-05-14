@@ -54,7 +54,7 @@ var numberOfBoomerangs = function (points) {
         return
       }
 
-      const dist = getDistance(i, j)
+      const dist = `i_${getDistance(i, j)}`
       map[dist] = map[dist] ? map[dist] + 1 : 1
     })
   })
