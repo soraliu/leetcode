@@ -54,14 +54,15 @@ var numberOfBoomerangs = function (points) {
         return
       }
 
-      const dist = `i_${getDistance(i, j)}`
+      const dist = `${i[0]}_${i[1]}_${getDistance(i, j)}`
       map[dist] = map[dist] ? map[dist] + 1 : 1
     })
   })
 
-  return Object.values(map).map(n => n / 2).reduce((sum, num) => {
+  return Object.values(map).reduce((sum, num) => {
     return sum + num * (num - 1)
   }, 0)
 }
+
 // @lc code=end
 export default numberOfBoomerangs
