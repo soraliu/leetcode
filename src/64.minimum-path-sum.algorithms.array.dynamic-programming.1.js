@@ -64,4 +64,4 @@ var minPathSum = function (grid) {
   return dp[n - 1][m - 1] || 0
 }
 // @lc code=end
-export default minPathSum
+module.exports = minPathSum

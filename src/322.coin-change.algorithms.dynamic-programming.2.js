@@ -62,4 +62,4 @@ var coinChange = function (coins, amount) {
   return cache[amount]
 }
 // @lc code=end
-export default coinChange
+module.exports = coinChange

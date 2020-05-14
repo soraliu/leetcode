@@ -65,4 +65,4 @@ var numberOfBoomerangs = function (points) {
 }
 
 // @lc code=end
-export default numberOfBoomerangs
+module.exports = numberOfBoomerangs

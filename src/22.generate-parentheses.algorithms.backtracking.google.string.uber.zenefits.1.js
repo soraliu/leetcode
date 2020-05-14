@@ -55,4 +55,4 @@ var generateParenthesis = function (n) {
   return result
 }
 // @lc code=end
-export default generateParenthesis
+module.exports = generateParenthesis

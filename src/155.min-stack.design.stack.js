@@ -104,4 +104,4 @@ MinStack.prototype.getMin = function () {
  * var param_4 = obj.getMin()
  */
 // @lc code=end
-export default MinStack
+module.exports = MinStack

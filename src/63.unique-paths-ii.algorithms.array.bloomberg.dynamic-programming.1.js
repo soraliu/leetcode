@@ -73,4 +73,4 @@ var uniquePathsWithObstacles = function (obstacleGrid) {
   return dp[n - 1][m - 1]
 }
 // @lc code=end
-export default uniquePathsWithObstacles
+module.exports = uniquePathsWithObstacles

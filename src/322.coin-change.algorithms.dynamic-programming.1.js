@@ -70,4 +70,4 @@ var coinChange = function (coins, amount) {
   return dp(coins, amount)
 }
 // @lc code=end
-export default coinChange
+module.exports = coinChange

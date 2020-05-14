@@ -53,4 +53,4 @@ var addStrings = function (num1, num2) {
   return result.reverse().join('')
 }
 // @lc code=end
-export default addStrings
+module.exports = addStrings

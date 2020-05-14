@@ -53,4 +53,4 @@ var plusOne = function (digits) {
   return digits
 }
 // @lc code=end
-export default plusOne
+module.exports = plusOne

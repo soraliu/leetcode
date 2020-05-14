@@ -66,4 +66,4 @@ var numDecodings = function (s) {
   return dp[s.length - 1]
 }
 // @lc code=end
-export default numDecodings
+module.exports = numDecodings

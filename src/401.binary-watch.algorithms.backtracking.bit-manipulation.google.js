@@ -74,4 +74,4 @@ var readBinaryWatch = function (num) {
   return getPermutations(num, 10).map(toDate).filter(Boolean)
 }
 // @lc code=end
-export default readBinaryWatch
+module.exports = readBinaryWatch

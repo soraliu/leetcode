@@ -56,4 +56,4 @@ var climbStairs = function (n) {
   return cache[n]
 }
 // @lc code=end
-export default climbStairs
+module.exports = climbStairs

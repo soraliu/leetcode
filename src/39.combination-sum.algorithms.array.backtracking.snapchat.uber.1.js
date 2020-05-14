@@ -95,4 +95,4 @@ var combinationSum = function (candidates, target) {
   return result
 }
 // @lc code=end
-export default combinationSum
+module.exports = combinationSum

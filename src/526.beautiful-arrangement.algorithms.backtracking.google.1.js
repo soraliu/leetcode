@@ -76,4 +76,4 @@ var countArrangement = function (N) {
   return count
 }
 // @lc code=end
-export default countArrangement
+module.exports = countArrangement

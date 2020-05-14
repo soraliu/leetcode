@@ -69,4 +69,4 @@ var isPowerOfThree = function (n) {
   return true
 }
 // @lc code=end
-export default isPowerOfThree
+module.exports = isPowerOfThree

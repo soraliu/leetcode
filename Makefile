@@ -22,7 +22,7 @@ do:
 	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*\d+\.[a-z-]+\.)js' -r "\$${pre}$${tags}")$$(rg --files $$company | grep $${file:0:-3} | wc -l).js && \
 	mv $$file $$file_with_tags && \
 	sed -i 's/ //g' $$file_with_tags && \
-	echo "export default $$(cat $$file_with_tags | rg -o '^var ([a-zA-Z]+) ' -r '$$1')" >> $$file_with_tags && yarn eslint --fix $$file_with_tags && \
+	echo "module.exports = $$(cat $$file_with_tags | rg -o '^var ([a-zA-Z]+) ' -r '$$1')" >> $$file_with_tags && yarn eslint --fix $$file_with_tags && \
 	vim $$file_with_tags
 
 run:

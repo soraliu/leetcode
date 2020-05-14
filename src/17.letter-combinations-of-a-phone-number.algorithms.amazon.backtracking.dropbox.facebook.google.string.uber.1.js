@@ -68,4 +68,4 @@ var letterCombinations = function (digits) {
   return result
 }
 // @lc code=end
-export default letterCombinations
+module.exports = letterCombinations

@@ -52,4 +52,4 @@ var longestPalindrome = function (s) {
   return pairs === s.length ? pairs : pairs + 1
 }
 // @lc code=end
-export default longestPalindrome
+module.exports = longestPalindrome

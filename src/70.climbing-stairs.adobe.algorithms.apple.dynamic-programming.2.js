@@ -58,4 +58,4 @@ var climbStairs = function (n) {
   return dp(n)
 }
 // @lc code=end
-export default climbStairs
+module.exports = climbStairs

@@ -55,4 +55,4 @@ var binaryTreePaths = function (root) {
   return result
 }
 // @lc code=end
-export default binaryTreePaths
+module.exports = binaryTreePaths

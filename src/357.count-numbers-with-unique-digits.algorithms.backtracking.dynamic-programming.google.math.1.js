@@ -52,4 +52,4 @@ var countNumbersWithUniqueDigits = function (n) {
   return count
 }
 // @lc code=end
-export default countNumbersWithUniqueDigits
+module.exports = countNumbersWithUniqueDigits

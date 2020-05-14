@@ -57,4 +57,4 @@ var findTheDifference = function (s, t) {
   return ''
 }
 // @lc code=end
-export default findTheDifference
+module.exports = findTheDifference

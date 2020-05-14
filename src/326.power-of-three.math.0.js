@@ -54,4 +54,4 @@ var isPowerOfThree = function (n) {
   return +hexOfTree[0] === 1 && !(+hexOfTree.slice(1))
 }
 // @lc code=end
-export default isPowerOfThree
+module.exports = isPowerOfThree

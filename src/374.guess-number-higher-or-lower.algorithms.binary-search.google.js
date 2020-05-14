@@ -63,4 +63,4 @@ var guessNumber = function (n) {
   }
 }
 // @lc code=end
-export default guessNumber
+module.exports = guessNumber

@@ -45,4 +45,4 @@ var isPowerOfTwo = function (n) {
   return !(+n.toString(2).slice(1))
 }
 // @lc code=end
-export default isPowerOfTwo
+module.exports = isPowerOfTwo

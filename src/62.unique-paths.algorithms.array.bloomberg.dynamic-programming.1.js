@@ -75,4 +75,4 @@ var uniquePaths = function (m, n) {
   return dp[n - 1][m - 1]
 }
 // @lc code=end
-export default uniquePaths
+module.exports = uniquePaths

@@ -71,4 +71,4 @@ var reverseVowels = function (s) {
   return s.join('')
 }
 // @lc code=end
-export default reverseVowels
+module.exports = reverseVowels

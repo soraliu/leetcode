@@ -67,4 +67,4 @@ var restoreIpAddresses = function (s) {
   return result
 }
 // @lc code=end
-export default restoreIpAddresses
+module.exports = restoreIpAddresses
