@@ -4,7 +4,7 @@ duration=/var/tmp/leecode-duration
 company=google
 
 submit: time
-	@file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om -x node_modules) && \
 	result=$$(leetcode submit $${file}) && echo "$$result" && \
 	msg=`echo -e "feat(algorithm): leetcode submit $$(echo $${file} | rg -e '[^/]+$$' -o) \n\nduration: $$(cat $(duration))\n\n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
 
@@ -18,16 +18,19 @@ do:
 	@date +%s > $(start)
 	@company=src && \
 	tags=$$(leetcode show -x -l javascript -o $${company} $(id) -g | rg -e 'Tags:' | xargs -n1 echo | sort | rg -v : | tr '\n' '.') && \
-	file=$$(git ls-files -om) && \
+	file=$$(git ls-files -om -x node_modules) && \
 	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*\d+\.[a-z-]+\.)js' -r "\$${pre}$${tags}")$$(rg --files $$company | grep $${file:0:-3} | wc -l).js && \
-	mv $$file $$file_with_tags && vim $$file_with_tags
+	mv $$file $$file_with_tags && \
+	sed -i 's/ //g' $$file_with_tags && \
+	echo "export default $$(cat $$file_with_tags | rg -o '^var ([a-zA-Z]+) ' -r '$$1')" >> $$file_with_tags && yarn eslint --fix $$file_with_tags && \
+	vim $$file_with_tags
 
 run:
-	@file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om -x node_modules) && \
 	leetcode run $$file
 
 local:
-	@file=$$(git ls-files -om) && \
+	@file=$$(git ls-files -om -x node_modules) && \
 	node $$file
 
 solution:
