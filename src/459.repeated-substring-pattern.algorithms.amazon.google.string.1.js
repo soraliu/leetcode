@@ -51,7 +51,19 @@
  * @return {boolean}
  */
 var repeatedSubstringPattern = function (s) {
+  const isRepeated = substr => {
+    if (s.length % substr.length === 0) {
+      return substr.repeat(s.length / substr.length) === s
+    }
+  }
 
+  for (let i = 0, len = s.length / 2; i < len; i++) {
+    if (isRepeated(s.slice(0, i + 1))) {
+      return true
+    }
+  }
+
+  return false
 }
 // @lc code=end
 module.exports = repeatedSubstringPattern
