@@ -62,7 +62,7 @@ var findRadius = function (houses, heaters) {
     return distance > maxDistance ? distance : maxDistance
   }, 0)
 
-  return Math.ceil(max / 2)
+  return max
 }
 // @lc code=end
 module.exports = findRadius
