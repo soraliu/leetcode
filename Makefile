@@ -7,6 +7,7 @@ submit: time
 	@file=$$(git ls-files -om -x node_modules) && \
 	result=$$(leetcode submit $${file}) && echo "$$result" && \
 	msg=`echo -e "feat(algorithm): leetcode submit $$(echo $${file} | rg -e '[^/]+$$' -o) \n\nduration: $$(cat $(duration))\n\n$$result"` && git add $$file 1>/dev/null 2>&1 && git commit -m "$$msg" 1>/dev/null 2>&1;
+	@git push 1>/dev/null
 
 list:
 	@leetcode list -t $(company) -q Le
