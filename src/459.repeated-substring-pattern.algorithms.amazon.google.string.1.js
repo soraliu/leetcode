@@ -51,6 +51,8 @@
  * @return {boolean}
  */
 var repeatedSubstringPattern = function (s) {
+  if (s.length <= 1) return false
+
   const isRepeated = substr => {
     if (s.length % substr.length === 0) {
       return substr.repeat(s.length / substr.length) === s
