@@ -41,7 +41,7 @@ tag_list:
 	echo "$$tags_all" | uniq | xargs -n 1 -I tag bash -c "echo tag \$$(echo '$$tags_all' | grep tag | wc -l)" | column -t -c ' ' | sort -nrk 2
 
 history:
-	@submits_all=$$(git log --format="%B" | rg -e "feat\(algorithm\): leetcode submit (.*)" -or '$$1') && \
+	@submits_all=$$(git log --format="%B" | rg -e "feat\(algorithm\): leetcode submit (\d+\.[a-zA-Z-]+)" -or '$$1') && \
 	echo "$$submits_all" | uniq | xargs -n 1 -I submit bash -c "echo submit \$$(echo '$$submits_all' | grep submit | wc -l)" | column -t -c ' ' | sort -nrk 2
 
 
