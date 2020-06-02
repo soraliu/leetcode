@@ -34,6 +34,10 @@ local:
 	@file=$$(git ls-files -om -x node_modules) && \
 	node $$file
 
+open:
+	@file=$$(git ls-files -om -x node_modules) && \
+	vim $$file
+
 star:
 	@file=$$(git ls-files -om -x node_modules) && \
 	starredFile=$$(echo $$file | rg -e '(.*)(\.\d+\.js)' -r '$${1}.starred$${2}') && \
