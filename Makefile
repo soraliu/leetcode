@@ -34,6 +34,19 @@ local:
 	@file=$$(git ls-files -om -x node_modules) && \
 	node $$file
 
+star:
+	@file=$$(git ls-files -om -x node_modules) && \
+	starredFile=$$(echo $$file | rg -e '(.*)(\.\d+\.js)' -r '$${1}.starred$${2}') && \
+	mv $$file $$starredFile
+
+unstar:
+	@starredFile=$$(git ls-files -om -x node_modules) && \
+	file=$$(echo $$starredFile | rg -e '(.*)\.starred(\.\d+\.js)' -r '$${1}$${2}') && \
+	mv $$starredFile $$file
+
+star_list:
+	@ls src | grep starred | xargs -n 1 echo
+
 solution:
 	@leetcode show -x -l javascript $(id) --solution
 
