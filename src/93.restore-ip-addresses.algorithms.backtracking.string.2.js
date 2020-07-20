@@ -45,22 +45,26 @@ var restoreIpAddresses = function (s) {
     }
 
     if (offset >= 1) {
-      if (s[start] === '0') {
-        return
-      }
-
       const num = parseInt(s[start])
       if (num >= 0 && num <= 255) {
         tracking(ip.concat([num]), depth + 1, start + 1)
       }
     }
     if (offset >= 2) {
+      if (s[start] === '0') {
+        return
+      }
+
       const num = parseInt(s[start] + s[start + 1])
       if (num >= 0 && num <= 255) {
         tracking(ip.concat([num]), depth + 1, start + 2)
       }
     }
     if (offset >= 3) {
+      if (s[start] === '0') {
+        return
+      }
+
       const num = parseInt(s[start] + s[start + 1] + s[start + 2])
       if (num >= 0 && num <= 255) {
         tracking(ip.concat([num]), depth + 1, start + 3)
