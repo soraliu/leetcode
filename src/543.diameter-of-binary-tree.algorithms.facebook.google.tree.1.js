@@ -50,13 +50,23 @@
 var diameterOfBinaryTree = function (root) {
   if (!root) return 0
 
+  const map = new Map()
+
   const getHighest = node => {
     if (!node) return 0
 
-    return 1 + Math.max(getHighest(node.left), getHighest(node.right))
+    if (!map.get(node)) {
+      map.set(node, 1 + Math.max(getHighest(node.left), getHighest(node.right)))
+    }
+
+    return map.get(node)
   }
 
-  return getHighest(root.left) + getHighest(root.right)
+  return Math.max(
+    diameterOfBinaryTree(root.left),
+    getHighest(root.left) + getHighest(root.right),
+    diameterOfBinaryTree(root.right)
+  )
 }
 // @lc code=end
 module.exports = diameterOfBinaryTree
