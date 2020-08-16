@@ -48,6 +48,8 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function (root) {
+  if (!root) return 0
+
   const getHighest = node => {
     if (!node) return 0
 
