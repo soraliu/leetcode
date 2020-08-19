@@ -96,6 +96,8 @@ var isSubtree = function (s, t) {
     if (node.right) dfs.push(node.right)
     if (node.left) dfs.push(node.left)
   }
+
+  return false
 }
 // @lc code=end
 module.exports = isSubtree
