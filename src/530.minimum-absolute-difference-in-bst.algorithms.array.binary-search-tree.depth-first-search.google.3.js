@@ -76,6 +76,7 @@ var getMinimumDifference = function (root) {
         prev = current.val
       } else {
         min = Math.min(min, current.val - prev)
+        prev = current.val
       }
 
       current = current.right
