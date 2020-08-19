@@ -72,7 +72,7 @@ var getMinimumDifference = function (root) {
     } else {
       current = inorder.pop()
 
-      if (!prev) {
+      if (prev === null) {
         prev = current.val
       } else {
         min = Math.min(min, current.val - prev)
