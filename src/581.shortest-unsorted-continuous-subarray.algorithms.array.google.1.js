@@ -49,11 +49,11 @@ var findUnsortedSubarray = function (nums) {
   let j = nums.length - 1
 
   while (i < j) {
-    if (nums[i] < nums[i + 1]) {
+    if (nums[i] <= nums[i + 1]) {
       i++
       continue
     }
-    if (nums[j] > nums[j - 1]) {
+    if (nums[j] >= nums[j - 1]) {
       j--
       continue
     }
