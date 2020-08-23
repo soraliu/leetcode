@@ -65,9 +65,11 @@ var findUnsortedSubarray = function (nums) {
   let minInRest = Infinity
   let maxInRest = -Infinity
 
-  for (let m = i + 1; m < j; m++) {
+  for (let m = i + 1; m < nums.length; m++) {
     minInRest = Math.min(minInRest, nums[m])
-    maxInRest = Math.max(maxInRest, nums[m])
+  }
+  for (let n = j - 1; n >= 0; n--) {
+    maxInRest = Math.max(maxInRest, nums[n])
   }
 
   while (i >= 0) {
