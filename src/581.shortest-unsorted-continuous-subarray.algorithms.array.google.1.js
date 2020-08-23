@@ -73,12 +73,14 @@ var findUnsortedSubarray = function (nums) {
   }
 
   while (i >= 0) {
-    if (nums[i] > minInRest) i--
-    break
+    if (nums[i] <= minInRest) break
+
+    i--
   }
   while (j < nums.length) {
-    if (nums[j] < maxInRest) j++
-    break
+    if (nums[j] >= maxInRest) break
+
+    j++
   }
 
   return j - i - 1
