@@ -53,20 +53,23 @@ var checkPossibility = function (nums) {
   if (!nums) return false
   if (nums.length === 1) return true
 
-  let met = false
-  for (let i = 0, len = nums.length - 1; i < len; i++) {
-    if (nums[i] > nums[i + 1]) {
-      if (
-        !met &&
-        (
-          (i === 0 || nums[i - 1] < nums[i + 1]) ||
-          (i === len - 1 || nums[i] < nums[i + 2])
-        )
-      ) {
-        met = true
-      } else {
+  /**
+   * @returns {Boolean}
+   */
+  const checkAsc = (arr, skipIndex) => {
+    const subArr = arr.filter((_, index) => index !== skipIndex)
+    for (let i = 0, len = subArr - 1; i < len; i++) {
+      if (subArr[i] > subArr[i + 1]) {
         return false
       }
+    }
+
+    return true
+  }
+
+  for (let i = 0, len = nums.length - 1; i < len; i++) {
+    if (nums[i] > nums[i + 1]) {
+      return checkAsc(nums, i) || checkAsc(nums, i + 1)
     }
   }
 
