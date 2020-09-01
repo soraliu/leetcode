@@ -64,7 +64,7 @@ var judgeCircle = function (moves) {
     }
   }
 
-  return !(x && y)
+  return !(x || y)
 }
 // @lc code=end
 module.exports = judgeCircle
