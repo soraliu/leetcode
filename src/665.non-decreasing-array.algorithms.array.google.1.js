@@ -58,7 +58,7 @@ var checkPossibility = function (nums) {
    */
   const checkAsc = (arr, skipIndex) => {
     const subArr = arr.filter((_, index) => index !== skipIndex)
-    for (let i = 0, len = subArr - 1; i < len; i++) {
+    for (let i = 0, len = subArr.length - 1; i < len; i++) {
       if (subArr[i] > subArr[i + 1]) {
         return false
       }
