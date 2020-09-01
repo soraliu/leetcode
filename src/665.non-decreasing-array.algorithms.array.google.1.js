@@ -63,7 +63,6 @@ var checkPossibility = function (nums) {
           (i === len - 1 || nums[i] < nums[i + 2])
         )
       ) {
-        i++
         met = true
       } else {
         return false
