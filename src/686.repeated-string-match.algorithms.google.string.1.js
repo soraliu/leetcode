@@ -34,14 +34,15 @@
  */
 var repeatedStringMatch = function (a, b) {
   let count = 1
+  let sum = a
 
   while (true) {
-    if (a.indexOf(b) < 0) {
-      if (b < (a * (count - 1))) {
+    if (sum.indexOf(b) < 0) {
+      if (b.length + a.length < sum.length) {
         return -1
       }
 
-      a += a
+      sum += a
       count++
     } else {
       return count
