@@ -10,7 +10,7 @@ submit: time
 	@git push 1>/dev/null 2>&1
 
 list:
-	@leetcode list -t $(company) -q Le
+	@leetcode list -t $(company) -q Lm
 
 stat:
 	@leetcode stat -t $(company)
