@@ -72,18 +72,10 @@
 var longestUnivaluePath = function (root) {
   if (!root) return 0
 
-  const hash = new WeakMap()
-
   const getLongestPath = node => {
-    if (hash.has(node)) return hash.get(node)
-
     const left = node.left && node.val === node.left.val ? getLongestPath(node.left) + 1 : 0
     const right = node.right && node.val === node.right.val ? getLongestPath(node.right) + 1 : 0
-    const ret = Math.max(left, right)
-
-    hash.set(node, ret)
-
-    return ret
+    return Math.max(left, right)
   }
 
   let paths = 0
