@@ -32,13 +32,8 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var nextPermutation = function (nums) {
-  // 1,3,6,4 -> 1,4,6,3
-  // 1,5,3,0 -> 3,0,1,5
-  // 1,3,5,0 -> 1,5,0,3
-
   // from right to left
   // to get the first number which have smaller one
-
   const swap = (i, j) => {
     const tmp = nums[i]
     nums[i] = nums[j]
@@ -48,7 +43,7 @@ var nextPermutation = function (nums) {
   const swapAndGetStart = () => {
     for (let i = nums.length - 1; i >= 1; i--) {
       for (let j = i - 1; j >= 0; j--) {
-        if (nums[i] > nums[j]) {
+        if (nums[i] >= nums[j]) {
           swap(i, j)
           return j + 1
         }
