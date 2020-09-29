@@ -41,12 +41,19 @@ var nextPermutation = function (nums) {
   }
 
   const swapAndGetStart = () => {
-    for (let i = nums.length - 1; i >= 1; i--) {
-      for (let j = i - 1; j >= 0; j--) {
-        if (nums[i] >= nums[j]) {
-          swap(i, j)
-          return j + 1
+    for (let i = nums.length - 2; i >= 0; i--) {
+      let min = Infinity
+      let target = null
+      for (let j = i + 1; j < nums.length; j++) {
+        if (nums[j] > nums[i] && nums[j] < min) {
+          min = nums[j]
+          target = j
         }
+      }
+
+      if (target !== null) {
+        swap(i, target)
+        return i + 1
       }
     }
     return 0
