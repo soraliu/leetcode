@@ -54,20 +54,28 @@
 var wordBreak = function (s, wordDict) {
   let ans = false
 
-  const dp = target => {
+  const cache = {}
+
+  const dfs = target => {
     if (target.length === 0) {
       ans = true
       return
     }
 
+    if (cache[target]) {
+      return
+    } else {
+      cache[target] = true
+    }
+
     wordDict.forEach(word => {
       if (target.slice(0, word.length) === word) {
-        dp(target.slice(word.length))
+        dfs(target.slice(word.length))
       }
     })
   }
 
-  dp(s)
+  dfs(s)
 
   return ans
 }
