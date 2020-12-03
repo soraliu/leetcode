@@ -65,13 +65,21 @@ var trap = function (height) {
     maxHeightOfRight[len - 1 - i] = height[len - 1 - i] >= maxHeightOfRight[len - i] ? height[len - 1 - i] : maxHeightOfRight[len - i]
   }
 
-  for (let i = 1, len = height.length - 1; i < len; i++) {
+  for (let i = 1, len = height.length; i < len - 1; i++) {
     if (maxHeightOfLeft[i - 1] > height[i] && height[i] < maxHeightOfRight[i + 1]) {
-      ret += Math.abs(maxHeightOfLeft[i - 1] - maxHeightOfRight[i + 1])
+      // console.log(maxHeightOfLeft[i - 1], height[i], maxHeightOfRight[i + 1])
+      ret += Math.min(maxHeightOfLeft[i - 1], maxHeightOfRight[i + 1]) - height[i]
     }
   }
 
   return ret
 }
 // @lc code=end
+console.log(trap([4, 2, 0, 3, 2, 5]))
 module.exports = trap
+
+//      1
+// 1    1
+// 1  1 1
+// 11 111
+// 11 111
