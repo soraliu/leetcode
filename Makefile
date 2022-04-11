@@ -20,7 +20,7 @@ do:
 	@company=src && \
 	tags=$$(leetcode show -x -l javascript -o $${company} $(id) -g | rg -e 'Tags:' | xargs -n1 echo | sort | rg -v : | tr '\n' '.') && \
 	file=$$(git ls-files -om -x node_modules) && \
-	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*\d+\.[a-z-]+\.)js' -r "\$${pre}$${tags}")$$(rg --files $$company | grep $${file:0:-3} | wc -l).js && \
+	file_with_tags=$$(echo $$file | rg -e '(?P<pre>.*\d+\.[a-z-]+\.)js' -r "\$${pre}$${tags}")$$(rg --files $$company | grep "$${file:0:-3}" | wc -l).js && \
 	mv $$file $$file_with_tags && \
 	sed -i 's/ //g' $$file_with_tags && \
 	echo "module.exports = $$(cat $$file_with_tags | rg -o '^var ([a-zA-Z]+) ' -r '$$1')" >> $$file_with_tags && yarn eslint --fix $$file_with_tags && \
