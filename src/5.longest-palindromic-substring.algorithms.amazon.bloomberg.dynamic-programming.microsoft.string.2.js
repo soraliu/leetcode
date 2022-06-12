@@ -48,9 +48,21 @@
  */
 var getLongestRightPalindrome = function (s) {
   for (let i = 0, len = s.length; i < len; i++) {
-    const substr = s.substring(i, len)
-    if (substr === substr.split('').reverse().join('')) {
-      return substr
+    let left = i
+    let right = len - 1
+
+    while (left < right) {
+      if (s[left] === s[right]) {
+        left++
+        right--
+        continue
+      }
+
+      break
+    }
+
+    if (left >= right) {
+      return s.substring(i, len)
     }
   }
 }
