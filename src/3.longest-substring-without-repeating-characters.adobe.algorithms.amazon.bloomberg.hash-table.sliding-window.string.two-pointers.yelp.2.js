@@ -72,8 +72,7 @@ var lengthOfLongestSubstring = function (s) {
       continue
     }
 
-    i = letterMap.get(s[j]) + 1
-    letterMap.delete(s[j])
+    letterMap.delete(s[i++])
   }
   return longestLength
 }
